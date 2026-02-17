@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebound — Full-Funnel Growth Partner for India's DTC Brands</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --accent: #00D9A3;
+            --accent-hover: #00B889;
+            --secondary: #4F46E5;
+            --text-primary: #0A0E27;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --bg: #FAFAFA;
+            --surface: #FFFFFF;
+            --border: #E2E8F0;
+            --gradient-start: #0A0E27;
+            --gradient-end: #1E293B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Instrument Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        .display {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--accent);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 217, 163, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 95vh;
+            padding: 140px 2rem 80px;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 163, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.15) 0%, transparent 50%);
+            opacity: 0.6;
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.4;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: rgba(0, 217, 163, 0.15);
+            border: 1px solid rgba(0, 217, 163, 0.3);
+            border-radius: 100px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.75rem, 7vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero h1 .accent-text {
+            color: var(--accent);
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            color: #CBD5E1;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1.15rem 2.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 217, 163, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 1.15rem 2.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 2rem;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 120px 2rem;
+            background: #F8FAFC;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            border-radius: 100px;
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .problem-card {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #EF4444, #F59E0B);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .problem-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .problem-detail {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 120px 2rem;
+            background: var(--surface);
+        }
+
+        .solution-intro {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .solution-intro h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .solution-intro p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .principle-card {
+            background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .principle-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .principle-card:hover::after {
+            opacity: 1;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .principle-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .principle-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .principle-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 120px 2rem;
+            background: #FAFAFA;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            background: rgba(0, 217, 163, 0.1);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        .service-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.65rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            background: #F1F5F9;
+            color: var(--text-secondary);
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* AI Section */
+        .ai-section {
+            padding: 120px 2rem;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(0, 217, 163, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(79, 70, 229, 0.1) 0%, transparent 50%);
+        }
+
+        .ai-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .ai-container h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #FFFFFF;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .ai-container .accent-text {
+            color: var(--accent);
+        }
+
+        .ai-description {
+            font-size: 1.3rem;
+            color: #CBD5E1;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .ai-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .ai-feature {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ai-feature:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 217, 163, 0.4);
+            transform: translateY(-6px);
+        }
+
+        .ai-feature h4 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .ai-feature p {
+            color: #CBD5E1;
+            line-height: 1.7;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 120px 2rem;
+            background: var(--surface);
+        }
+
+        .process-timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), var(--secondary));
+            transform: translateX(-50%);
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .process-step:nth-child(even) .process-content {
+            order: 2;
+        }
+
+        .process-step:nth-child(even) .process-visual {
+            order: 1;
+        }
+
+        .process-number {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+            z-index: 10;
+            box-shadow: 0 8px 24px rgba(0, 217, 163, 0.3);
+        }
+
+        .process-content {
+            padding: 2rem;
+        }
+
+        .process-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .process-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .process-deliverables {
+            list-style: none;
+        }
+
+        .process-deliverables li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .process-deliverables li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .process-visual {
+            background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 2rem;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 217, 163, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 50%);
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-container h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #FFFFFF;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-container p {
+            font-size: 1.3rem;
+            color: #CBD5E1;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #CBD5E1;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-family: 'Instrument Sans', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Instrument Sans', sans-serif;
+        }
+
+        .form-submit:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 217, 163, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--primary);
+            color: #94A3B8;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: #64748B;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .hero {
+                padding: 120px 1.5rem 60px;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-container {
+                gap: 3rem;
+            }
+
+            .problem-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-timeline::before {
+                left: 30px;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding-left: 80px;
+            }
+
+            .process-step:nth-child(even) .process-content,
+            .process-step:nth-child(even) .process-visual {
+                order: initial;
+            }
+
+            .process-number {
+                left: 30px;
+                transform: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Rebound</a>
+            <a href="#book-call" class="nav-cta">Book Discovery Call</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="grid-overlay"></div>
+        <div class="hero-container">
+            <span class="hero-badge">Full-Funnel Growth Partner</span>
+            <h1 class="display">
+                We don't just optimize.<br>
+                <span class="accent-text">We build alongside you.</span>
+            </h1>
+            <p class="hero-subtitle">
+                The growth partner Indian DTC founders actually want: AI-powered optimization across every touchpoint, transparent reporting, and a team that thinks like co-founders—not vendors.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#book-call" class="btn-primary">Book Your Discovery Call</a>
+                <a href="#how-we-work" class="btn-secondary">See How We Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">2.3x</div>
+                <div class="stat-label">Average ROAS Improvement</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">Avg. CVR Increase (6 months)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">AI-First</div>
+                <div class="stat-label">Every Service, Every Day</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">₹5Cr+</div>
+                <div class="stat-label">Ad Spend Managed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">The Truth About Growth Partners</span>
+                <h2 class="section-title display">Where Others Fall Short</h2>
+                <p class="section-subtitle">
+                    You've worked with "experts" before. Here's what actually happened.
+                </p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="problem-icon">📊</span>
+                    <h3>Vanity Metrics Theater</h3>
+                    <p>They show you beautiful dashboards with impressive impressions and reach. But your bank account tells a different story.</p>
+                    <span class="problem-detail">Revenue ≠ Engagement. You need actual sales, not engagement theater.</span>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">🎭</span>
+                    <h3>The "Strategy" Mirage</h3>
+                    <p>45-slide decks filled with buzzwords. Zero execution. By month 3, you're still waiting for the "next phase" to begin.</p>
+                    <span class="problem-detail">PowerPoints don't drive revenue. Execution does.</span>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">🤖</span>
+                    <h3>Manual Labor Disguised as Expertise</h3>
+                    <p>They're still creating ads manually, running A/B tests one at a time, and treating your brand like it's 2019.</p>
+                    <span class="problem-detail">AI exists. Your competitors are using it. Your partner should too.</span>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">🔒</span>
+                    <h3>Black Box Operations</h3>
+                    <p>"Trust us, it's working." You have no idea what's actually happening with your ad spend until the invoice arrives.</p>
+                    <span class="problem-detail">Opacity is a feature for them. It's a bug for your business.</span>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">💸</span>
+                    <h3>Optimization? More Like "Set and Forget"</h3>
+                    <p>They launch campaigns, check in once a week, and call it "monitoring." Meanwhile, your CPMs spike and no one notices.</p>
+                    <span class="problem-detail">Real optimization happens in hours, not weeks.</span>
+                </div>
+
+                <div class="problem-card">
+                    <span class="problem-icon">🎯</span>
+                    <h3>One-Size-Fits-All Playbooks</h3>
+                    <p>They run the same Meta ad strategy for your pet supplements that they used for a fashion brand. Different markets, same template.</p>
+                    <span class="problem-detail">Generic strategies produce generic results.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution/Approach Section -->
+    <section class="solution-section">
+        <div class="section-container">
+            <div class="solution-intro">
+                <h2 class="display">A Partnership Built on Reality, Not Promises</h2>
+                <p>We work like your co-founder would: obsessed with revenue, transparent about what's working (and what isn't), and constantly optimizing every lever in your funnel.</p>
+            </div>
+
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <span class="principle-number mono">[01]</span>
+                    <h3>Revenue-First Mindset</h3>
+                    <p>We don't celebrate clicks. We celebrate customers. Every decision, every optimization, every campaign is measured against one question: Did this increase profitable revenue?</p>
+                </div>
+
+                <div class="principle-card">
+                    <span class="principle-number mono">[02]</span>
+                    <h3>Radical Transparency</h3>
+                    <p>Real-time dashboards showing actual performance. Weekly detailed reports. Direct access to campaign data. If we're spending your money, you should know exactly where it's going and what it's generating.</p>
+                </div>
+
+                <div class="principle-card">
+                    <span class="principle-number mono">[03]</span>
+                    <h3>AI-Powered Execution</h3>
+                    <p>We use AI for creative generation, audience analysis, bid optimization, and personalization. Not because it's trendy—because it actually works and gives you an unfair advantage.</p>
+                </div>
+
+                <div class="principle-card">
+                    <span class="principle-number mono">[04]</span>
+                    <h3>Full-Funnel Obsession</h3>
+                    <p>Landing page slow? We fix it. Email retention weak? We rebuild it. Product page not converting? We optimize it. Growth isn't about one channel—it's about every touchpoint working together.</p>
+                </div>
+
+                <div class="principle-card">
+                    <span class="principle-number mono">[05]</span>
+                    <h3>Speed of Iteration</h3>
+                    <p>We test daily, optimize hourly when needed. The market doesn't wait for your monthly review meeting. Neither should your optimization cycles.</p>
+                </div>
+
+                <div class="principle-card">
+                    <span class="principle-number mono">[06]</span>
+                    <h3>Built for Indian DTC Reality</h3>
+                    <p>We understand COD dynamics, tier 2/3 city nuances, WhatsApp as a retention channel, and the actual constraints Indian founders face. Not theory—lived experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">What We Actually Do</span>
+                <h2 class="section-title display">The Complete Growth Stack</h2>
+                <p class="section-subtitle">
+                    Every service AI-powered, data-driven, and built to scale your DTC brand in India.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🎯</div>
+                        <span class="service-tag mono">CORE</span>
+                    </div>
+                    <h3>Full-Funnel Optimization</h3>
+                    <p class="service-description">End-to-end audit and continuous optimization of your entire customer journey—from first ad impression to repeat purchase.</p>
+                    <ul class="service-features">
+                        <li>Customer journey mapping & bottleneck identification</li>
+                        <li>Conversion rate optimization (CRO) across all touchpoints</li>
+                        <li>Funnel analytics & attribution modeling</li>
+                        <li>A/B testing infrastructure & velocity optimization</li>
+                        <li>Weekly performance deep-dives with actionable insights</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">GA4</span>
+                        <span class="tech-badge">Hotjar</span>
+                        <span class="tech-badge">Microsoft Clarity</span>
+                        <span class="tech-badge">Custom Analytics</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">📈</div>
+                        <span class="service-tag mono">ACQUISITION</span>
+                    </div>
+                    <h3>Performance Marketing</h3>
+                    <p class="service-description">AI-powered paid acquisition on Meta, Google, and emerging platforms. Built for scale, optimized for profitability.</p>
+                    <ul class="service-features">
+                        <li>AI-generated creative testing (50+ variants/month)</li>
+                        <li>Dynamic audience segmentation & lookalike modeling</li>
+                        <li>Real-time bid optimization & budget allocation</li>
+                        <li>Multi-platform campaign orchestration</li>
+                        <li>Predictive LTV-based acquisition strategies</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Meta Ads</span>
+                        <span class="tech-badge">Google Ads</span>
+                        <span class="tech-badge">Midjourney</span>
+                        <span class="tech-badge">Claude</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">💰</div>
+                        <span class="service-tag mono">PROFITABILITY</span>
+                    </div>
+                    <h3>CM2 Optimization</h3>
+                    <p class="service-description">Contribution Margin optimization that actually matters. We improve your unit economics, not just top-line revenue.</p>
+                    <ul class="service-features">
+                        <li>Complete P&L modeling & scenario analysis</li>
+                        <li>Channel-level profitability tracking</li>
+                        <li>CAC payback period optimization</li>
+                        <li>Product-level margin analysis & recommendations</li>
+                        <li>Dynamic pricing & bundling strategies</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Custom Models</span>
+                        <span class="tech-badge">Shopify Analytics</span>
+                        <span class="tech-badge">Financial Dashboards</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">⚡</div>
+                        <span class="service-tag mono">TECHNICAL</span>
+                    </div>
+                    <h3>High-Performance Page Builder</h3>
+                    <p class="service-description">Lightning-fast landing pages and product pages that actually convert. Optimized for mobile-first Indian traffic.</p>
+                    <ul class="service-features">
+                        <li>Sub-2-second page loads (Core Web Vitals optimized)</li>
+                        <li>Mobile-first responsive design (80%+ of traffic)</li>
+                        <li>Conversion-optimized templates & frameworks</li>
+                        <li>Dynamic personalization & A/B testing built-in</li>
+                        <li>SEO-optimized technical implementation</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Shogun</span>
+                        <span class="tech-badge">PageFly</span>
+                        <span class="tech-badge">Custom Code</span>
+                        <span class="tech-badge">CDN Optimization</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🔄</div>
+                        <span class="service-tag mono">RETENTION</span>
+                    </div>
+                    <h3>Subscription Enhancement</h3>
+                    <p class="service-description">Build predictable, recurring revenue. Subscription strategy, tech implementation, and ongoing optimization.</p>
+                    <ul class="service-features">
+                        <li>Subscription model design & pricing optimization</li>
+                        <li>Recharge/Bold integration & customization</li>
+                        <li>Churn prediction & prevention workflows</li>
+                        <li>Retention email & WhatsApp automation</li>
+                        <li>LTV maximization through upsells & cross-sells</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Recharge</span>
+                        <span class="tech-badge">Bold</span>
+                        <span class="tech-badge">Custom Scripts</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">📧</div>
+                        <span class="service-tag mono">LIFECYCLE</span>
+                    </div>
+                    <h3>Retention Marketing</h3>
+                    <p class="service-description">Automated, personalized lifecycle marketing across email and WhatsApp. Turn one-time buyers into repeat customers.</p>
+                    <ul class="service-features">
+                        <li>Welcome series, post-purchase, win-back flows</li>
+                        <li>WhatsApp-based retention (the Indian reality)</li>
+                        <li>AI-powered personalization at scale</li>
+                        <li>Segmentation based on behavior, not just demographics</li>
+                        <li>Loyalty program design & implementation</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Klaviyo</span>
+                        <span class="tech-badge">WhatsApp Business API</span>
+                        <span class="tech-badge">Interakt</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🔍</div>
+                        <span class="service-tag mono">ORGANIC</span>
+                    </div>
+                    <h3>SEO & Content</h3>
+                    <p class="service-description">AI-assisted content creation and technical SEO that actually ranks. Built for long-term compounding growth.</p>
+                    <ul class="service-features">
+                        <li>Technical SEO audit & implementation</li>
+                        <li>Keyword research & content strategy</li>
+                        <li>AI-assisted content creation at scale</li>
+                        <li>Product page & category optimization</li>
+                        <li>Link building & authority development</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Ahrefs</span>
+                        <span class="tech-badge">Semrush</span>
+                        <span class="tech-badge">Claude</span>
+                        <span class="tech-badge">Screaming Frog</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🎨</div>
+                        <span class="service-tag mono">CREATIVE</span>
+                    </div>
+                    <h3>GEO & Creative Production</h3>
+                    <p class="service-description">Generative Engine Optimization and AI-powered creative production. Stay ahead of search evolution and scale creative output.</p>
+                    <ul class="service-features">
+                        <li>AI-native content optimization for LLM discovery</li>
+                        <li>AI-generated ad creatives (50-100/month)</li>
+                        <li>Video ad generation & editing automation</li>
+                        <li>UGC-style content at scale</li>
+                        <li>Brand voice consistency across AI outputs</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Midjourney</span>
+                        <span class="tech-badge">RunwayML</span>
+                        <span class="tech-badge">Eleven Labs</span>
+                        <span class="tech-badge">Claude</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🎯</div>
+                        <span class="service-tag mono">FOUNDATION</span>
+                    </div>
+                    <h3>Persona Development & Market Research</h3>
+                    <p class="service-description">Data-driven customer personas and market intelligence. Know who you're selling to and how to reach them.</p>
+                    <ul class="service-features">
+                        <li>Jobs-to-be-done customer research</li>
+                        <li>Psychographic segmentation & persona building</li>
+                        <li>Competitor analysis & positioning strategy</li>
+                        <li>Message testing & positioning optimization</li>
+                        <li>Market size estimation & TAM analysis</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Survey Tools</span>
+                        <span class="tech-badge">Customer Interviews</span>
+                        <span class="tech-badge">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-First Section -->
+    <section class="ai-section">
+        <div class="ai-container">
+            <h2 class="display">Why <span class="accent-text">AI-First</span> Actually Matters</h2>
+            <p class="ai-description">
+                We don't use AI as a marketing gimmick. We use it because it genuinely transforms what's possible for your brand—faster iteration, deeper personalization, and scale without proportional cost increases.
+            </p>
+
+            <div class="ai-features">
+                <div class="ai-feature">
+                    <h4>Creative Velocity</h4>
+                    <p>Generate 50+ ad variants per month. Test messaging, visuals, and formats at a pace that would require an entire creative team manually.</p>
+                </div>
+                <div class="ai-feature">
+                    <h4>Hyper-Personalization</h4>
+                    <p>AI analyzes customer behavior patterns to deliver personalized experiences across ads, email, and landing pages—at individual user level.</p>
+                </div>
+                <div class="ai-feature">
+                    <h4>Predictive Optimization</h4>
+                    <p>Machine learning models predict which customers will convert, which will churn, and how to allocate budget for maximum return.</p>
+                </div>
+                <div class="ai-feature">
+                    <h4>Content at Scale</h4>
+                    <p>From product descriptions to blog posts to email sequences—AI helps us produce high-quality content without sacrificing your brand voice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section" id="how-we-work">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Our Methodology</span>
+                <h2 class="section-title display">How We Work Together</h2>
+                <p class="section-subtitle">
+                    No fluff. No 45-slide decks. Just a clear, execution-focused process.
+                </p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3>Deep-Dive Audit</h3>
+                        <p>We analyze your entire funnel—ads, landing pages, checkout, email, retention. We identify what's actually broken (not what consultants usually say is broken).</p>
+                        <ul class="process-deliverables">
+                            <li>Complete funnel audit with conversion rate analysis</li>
+                            <li>Technical performance review (site speed, mobile UX)</li>
+                            <li>Competitor positioning & creative analysis</li>
+                            <li>Current CAC/LTV/CM2 baseline modeling</li>
+                            <li>Prioritized opportunity map with revenue impact</li>
+                        </ul>
+                    </div>
+                    <div class="process-visual">
+                        <div class="mono" style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                            Week 1-2<br>
+                            Data Collection & Analysis<br>
+                            → Comprehensive Audit Report
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3>Strategic Roadmap</h3>
+                        <p>Based on the audit, we build a 90-day execution plan. Clear priorities, expected outcomes, and what success looks like—in revenue, not vanity metrics.</p>
+                        <ul class="process-deliverables">
+                            <li>90-day growth roadmap with specific initiatives</li>
+                            <li>Revenue projections & target ROAS per channel</li>
+                            <li>Testing calendar (creative, audiences, landing pages)</li>
+                            <li>Technology stack recommendations & integrations</li>
+                            <li>Weekly milestone definitions</li>
+                        </ul>
+                    </div>
+                    <div class="process-visual">
+                        <div class="mono" style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                            Week 2-3<br>
+                            Strategy Development<br>
+                            → 90-Day Action Plan
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3>Rapid Execution</h3>
+                        <p>We implement immediately. New campaigns, landing pages, retention flows, A/B tests—all go live within the first month. No "strategy phase" that lasts forever.</p>
+                        <ul class="process-deliverables">
+                            <li>Campaign launches across acquisition channels</li>
+                            <li>Landing page & site speed optimizations</li>
+                            <li>Email & WhatsApp automation setup</li>
+                            <li>A/B testing infrastructure implementation</li>
+                            <li>Analytics & reporting dashboards configured</li>
+                        </ul>
+                    </div>
+                    <div class="process-visual">
+                        <div class="mono" style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                            Week 3-8<br>
+                            Full Implementation<br>
+                            → Live Campaigns & Systems
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3>Continuous Optimization</h3>
+                        <p>Weekly testing cycles. Daily performance monitoring. Monthly deep-dives. We treat your business like it's our own—obsessed with finding the next edge.</p>
+                        <ul class="process-deliverables">
+                            <li>Daily campaign monitoring & bid adjustments</li>
+                            <li>Weekly performance reports with insights</li>
+                            <li>Bi-weekly strategy calls with your team</li>
+                            <li>Monthly deep-dive analysis & roadmap updates</li>
+                            <li>Continuous A/B testing & iteration</li>
+                        </ul>
+                    </div>
+                    <div class="process-visual">
+                        <div class="mono" style="color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                            Ongoing<br>
+                            Test → Learn → Scale<br>
+                            → Compounding Growth
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="book-call">
+        <div class="cta-container">
+            <h2 class="display">Ready to Build Together?</h2>
+            <p>Book a discovery call. We'll audit one key part of your funnel for free and show you exactly where you're leaving money on the table.</p>
+
+            <form class="cta-form" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Amit Sharma" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brand">Brand Name *</label>
+                        <input type="text" id="brand" name="brand" placeholder="YourBrand" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="amit@yourbrand.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="revenue">Current Monthly Revenue *</label>
+                    <select id="revenue" name="revenue" required>
+                        <option value="">Select range</option>
+                        <option value="0-5L">₹0 - ₹5 Lakhs</option>
+                        <option value="5-15L">₹5 - ₹15 Lakhs</option>
+                        <option value="15-50L">₹15 - ₹50 Lakhs</option>
+                        <option value="50L-1Cr">₹50 Lakhs - ₹1 Crore</option>
+                        <option value="1Cr+">₹1 Crore+</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="challenge">Biggest Growth Challenge Right Now *</label>
+                    <textarea id="challenge" name="challenge" placeholder="e.g., Our ROAS dropped from 2.5 to 1.2 in the last 3 months and we can't figure out why..." required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Book Your Free Audit Call →</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Rebound</div>
+            <div class="footer-tagline">Your Full-Funnel Growth Partner</div>
+            
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#how-we-work">Process</a>
+                <a href="#book-call">Book a Call</a>
+                <a href="mailto:hello@rebound.com">Contact</a>
+            </div>
+
+            <div class="footer-bottom">
+                © 2025 Rebound. Built for Indian DTC Founders Who Want Real Growth.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission (replace with your actual form handler)
+        document.querySelector('.cta-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted! We\'ll reach out within 24 hours.');
+            // Add your actual form submission logic here
+        });
+
+        // Add scroll animation for stats
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-item, .problem-card, .service-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
