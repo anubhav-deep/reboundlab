@@ -1540,7 +1540,7 @@
             <h2 class="display">Ready to Build Together?</h2>
             <p>Book a discovery call. We'll audit one key part of your funnel for free and show you exactly where you're leaving money on the table.</p>
 
-            <form class="cta-form" action="#" method="POST">
+            <form id="leadForm" class="cta-form">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Your Name *</label>
@@ -1620,46 +1620,46 @@
         });
 
         <script>
-  const N8N_WEBHOOK_URL = "https://reboundlab.app.n8n.cloud/webhook-test/rebound-form"; // use test url for now
-
-  const form = document.querySelector(".cta-form");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("leadForm");
+  if (!form) {
+    console.error("leadForm not found");
+    return;
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Collect values from your existing form fields (these IDs already exist in your HTML)
     const payload = {
       name: document.getElementById("name").value.trim(),
       brand: document.getElementById("brand").value.trim(),
       email: document.getElementById("email").value.trim(),
       phone: document.getElementById("phone").value.trim(),
-      revenue: document.getElementById("revenue").value,
-      challenge: document.getElementById("challenge").value.trim(),
+      revenue: document.getElementById("revenue")?.value || "",
+      challenge: document.getElementById("challenge")?.value?.trim() || "",
       page: window.location.href,
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toISOString()
     };
 
     try {
-      const res = await fetch(N8N_WEBHOOK_URL, {
+      const res = await fetch("https://reboundlab.app.n8n.cloud/webhook-test/rebound-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       });
 
-      if (!res.ok) throw new Error(`Webhook failed: ${res.status}`);
+      if (!res.ok) throw new Error("Webhook failed: " + res.status);
 
-      // ✅ success UI
       alert("Thanks! Submitted successfully.");
       form.reset();
-
-      // (Later) redirect to cal.com / calendly if you want
-      // window.location.href = "https://cal.com/YOUR_LINK";
     } catch (err) {
       console.error(err);
       alert("Submission failed. Please try again.");
     }
   });
+});
 </script>
+
 
 
         // Add scroll animation for stats
