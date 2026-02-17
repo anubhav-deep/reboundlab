@@ -1619,12 +1619,48 @@
             });
         });
 
-        // Form submission (replace with your actual form handler)
-        document.querySelector('.cta-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Form submitted! We\'ll reach out within 24 hours.');
-            // Add your actual form submission logic here
-        });
+        <script>
+  const N8N_WEBHOOK_URL = "https://reboundlab.app.n8n.cloud/webhook-test/rebound-form"; // use test url for now
+
+  const form = document.querySelector(".cta-form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Collect values from your existing form fields (these IDs already exist in your HTML)
+    const payload = {
+      name: document.getElementById("name").value.trim(),
+      brand: document.getElementById("brand").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      revenue: document.getElementById("revenue").value,
+      challenge: document.getElementById("challenge").value.trim(),
+      page: window.location.href,
+      timestamp: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error(`Webhook failed: ${res.status}`);
+
+      // ✅ success UI
+      alert("Thanks! Submitted successfully.");
+      form.reset();
+
+      // (Later) redirect to cal.com / calendly if you want
+      // window.location.href = "https://cal.com/YOUR_LINK";
+    } catch (err) {
+      console.error(err);
+      alert("Submission failed. Please try again.");
+    }
+  });
+</script>
+
 
         // Add scroll animation for stats
         const observerOptions = {
