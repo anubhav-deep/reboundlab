@@ -8,6 +8,89 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+
+        .logo img{
+  height: 30px;
+  width: auto;
+  display: block;
+}
+        
+        .ai-video-section{
+  padding: 120px 2rem;
+  background: #F8FAFC;
+}
+
+.ai-video-grid{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ai-video-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.ai-video-title{
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.ai-video-list{
+  list-style: none;
+  color: var(--text-secondary);
+}
+
+.ai-video-list li{
+  padding: 0.6rem 0;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.ai-video-list li::before{
+  content: "→";
+  color: var(--accent);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.ai-video-embed{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+
+.video-wrap{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-wrap iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ai-video-note{
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+@media (max-width: 768px){
+  .ai-video-grid{ grid-template-columns: 1fr; }
+}
         :root {
             --primary: #0A0E27;
             --accent: #00D9A3;
@@ -1036,13 +1119,44 @@
                 grid-template-columns: 1fr;
             }
         }
+        .form-status{
+  margin-top: 14px;
+  padding: 14px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: left;
+  display: none;
+}
+
+.form-status.success{
+  display:block;
+  background: rgba(0, 217, 163, 0.12);
+  border: 1px solid rgba(0, 217, 163, 0.35);
+  color: #E6FFF7;
+}
+
+.form-status.error{
+  display:block;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #FFECEC;
+}
+
+.form-submit[disabled]{
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Rebound</a>
+            <a href="#" class="logo">
+  <img src="logo.svg" alt="Rebound" />
+</a>
             <a href="#book-call" class="nav-cta">Book Discovery Call</a>
         </div>
     </nav>
@@ -1402,6 +1516,44 @@
         </div>
     </section>
 
+    <section class="ai-video-section" id="ai-video">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">AI Video</span>
+      <h2 class="section-title display">AI Video Ads at Scale</h2>
+      <p class="section-subtitle">
+        Script → voice → edits → variants. We produce more winning creatives without increasing headcount.
+      </p>
+    </div>
+
+    <div class="ai-video-grid">
+      <div class="ai-video-card">
+        <h3 class="ai-video-title">What you get</h3>
+        <ul class="ai-video-list">
+          <li>UGC-style video variations (hooks, angles, lengths)</li>
+          <li>Voiceovers + captions + brand-safe templates</li>
+          <li>Rapid iteration based on performance data</li>
+          <li>Creative testing plan (weekly)</li>
+        </ul>
+      </div>
+
+      <div class="ai-video-embed">
+        <!-- Replace the src with your YouTube/Vimeo link -->
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="AI Video Ads"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="ai-video-note mono">Add your sample reel here (YouTube/Vimeo).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
     <!-- AI-First Section -->
     <section class="ai-section">
         <div class="ai-container">
@@ -1582,6 +1734,7 @@
 
                 <button type="submit" class="form-submit">Book Your Free Audit Call →</button>
             </form>
+            <div id="formStatus" class="form-status" aria-live="polite"></div>
         </div>
     </section>
 
@@ -1621,16 +1774,34 @@
 </script>
 
 <script>
-  // Form submit -> n8n webhook
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("leadForm");
+    const statusEl = document.getElementById("formStatus");
+    const submitBtn = form?.querySelector('button[type="submit"]');
+
     if (!form) {
       console.error("leadForm not found");
       return;
     }
 
+    const setStatus = (type, msg) => {
+      if (!statusEl) return;
+      statusEl.className = `form-status ${type}`;
+      statusEl.textContent = msg;
+    };
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // Clear status
+      if (statusEl) { statusEl.className = "form-status"; statusEl.style.display = "none"; }
+
+      // UI: submitting state
+      const originalBtnText = submitBtn?.textContent || "";
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Submitting…";
+      }
 
       const payload = {
         name: document.getElementById("name")?.value?.trim() || "",
@@ -1652,11 +1823,25 @@
 
         if (!res.ok) throw new Error("Webhook failed: " + res.status);
 
-        alert("Thanks! Submitted successfully.");
+        // Success UI
+        setStatus("success", "Submitted ✅ Redirecting you to book your call…");
         form.reset();
+
+        // OPTIONAL: redirect to Cal.com/Calendly
+        // Replace this URL with your actual booking link:
+        setTimeout(() => {
+          window.location.href = "https://cal.com/your-link";
+          // or: "https://calendly.com/your-link"
+        }, 900);
+
       } catch (err) {
         console.error(err);
-        alert("Submission failed. Please try again.");
+        setStatus("error", "Submission failed. Please try again (or refresh).");
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
       }
     });
   });
